@@ -24,7 +24,7 @@ module SingleCycleCPU (
 
 // TODO: connect wire to realize SingleCycleCPU
 // The following provides simple template,
-reg branch, memRead, memtoReg, memWrite, ALUSrc, regWrite, branch_taken, r_type, zero;
+reg branch, memRead, memtoReg, memWrite, ALUSrc, regWrite, branch_taken, zero;
   wire funct7;
   wire [2:0] funct3;
   wire [1:0] ALUOp;
@@ -107,10 +107,10 @@ Mux2to1 #(.size(32)) m_Mux_PC(
     .out(pc_i)
 );
 
-  assign r_type = (opcode == 7'b0110011 || opcode == 7'b1100011) ? 1'b0 : 1'b1; //add,sub,beq,bgt
+ 
 
 Mux2to1 #(.size(32)) m_Mux_ALU(
-    .sel(r_type),
+    .sel(ALUSrc),
     .s0(readData2),
     .s1(imm),
     .out(operand_2)
