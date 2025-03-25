@@ -57,7 +57,7 @@ module control (
             branch = 1'b1;   
         end
         7'b1101111:  begin  //jal
-            ALUSrc = 1'b0;
+            ALUSrc = 1'b1;
             memtoReg = 1'b0;
             regWrite = 1'b0;
             memRead = 1'b0;
