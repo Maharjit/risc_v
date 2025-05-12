@@ -1,6 +1,6 @@
 #!/bin/bash
 qemu-system-arm \
-  -M raspi2 \
+  -M raspi2b \
   -kernel kernel.img \
   -serial stdio \
   -nographic
