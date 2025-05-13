@@ -49,7 +49,7 @@ module s_axil #(
     logic [7:0] lfsr_reg;
 ​
     // AXI Write Logic
-    always_ff @(posedge aclk or negedge aresetn) begin
+    always @(posedge aclk or negedge aresetn) begin
         if (!aresetn) begin
             start_reg <= 0;
             stop_reg  <= 0;
@@ -75,7 +75,7 @@ module s_axil #(
     end
 ​
     // Write response logic
-    always_ff @(posedge aclk or negedge aresetn) begin
+    always @(posedge aclk or negedge aresetn) begin
         if (!aresetn) begin
             s_axi_bvalid <= 0;
             s_axi_bresp  <= 2'b00;
@@ -95,7 +95,7 @@ module s_axil #(
     end
 ​
     // AXI Read Logic with Proper s_axi_arready Handling
-    always_ff @(posedge aclk or negedge aresetn) begin
+    always @(posedge aclk or negedge aresetn) begin
         if (!aresetn) begin
             s_axi_rvalid  <= 0;
             s_axi_rresp   <= 2'b00;
@@ -129,7 +129,7 @@ module s_axil #(
 ​
 ​
     // LFSR Logic with AXI-Stream Handshake
-    always_ff @(posedge aclk or negedge aresetn) begin
+    always @(posedge aclk or negedge aresetn) begin
         if (!aresetn) begin
             lfsr_reg <= seed_reg;
             m_axis_tvalid <= 0;
